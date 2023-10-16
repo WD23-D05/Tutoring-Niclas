@@ -1,7 +1,6 @@
 // Class for Book Management:
-// Create a Book class with properties such as title, author, and ISBN. Create a myBookManager to add a book, remove a book, and display all the books in the library.
+// Create a Book class with properties such as title, author, and ISBN. Implement methods to add a book, remove a book, and display all the books in the library.
 
-// Your code Here :
 class Book {
     constructor(title, author, isbn) {
         this.title = title;
@@ -14,26 +13,29 @@ class BookManager {
     constructor() {
         this.books = [];
     }
+
+    // Method to add a book to the library
     addBook(title, author, isbn) {
         const newBook = new Book(title, author, isbn);
         this.books.push(newBook);
     }
 
+    // Method to remove a book from the library
     removeBook(isbn) {
         this.books = this.books.filter((book) => book.isbn !== isbn);
     }
 
+    // Method to display all the books in the library
     displayBooks() {
         this.books.forEach((book) => {
-            console.log(`Title: ${book.title} Author: ${book.author} ISBN:${book.isbn}`);
+            console.log(`Title: ${book.title}, Author: ${book.author}, ISBN: ${book.isbn}`);
         });
     }
 }
 
-// #########################################################
 // Example usage:
 const myBookManager = new BookManager();
-myBookManager.displayBooks();
+
 // Adding books
 myBookManager.addBook("The Great Gatsby", "F. Scott Fitzgerald", "978-3-16-148410-0");
 myBookManager.addBook("To Kill a Mockingbird", "Harper Lee", "978-3-16-148410-1");
